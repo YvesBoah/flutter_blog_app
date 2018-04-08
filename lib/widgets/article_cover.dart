@@ -4,8 +4,9 @@ import 'package:blog_app/ui_model/text_styles.dart';
 
 class ArticleCover extends StatelessWidget {
   final Article _article;
+  final double _height;
 
-  ArticleCover(this._article);
+  ArticleCover(this._article, this._height);
 
   Widget _buildArticleTextList() {
     return new Container(
@@ -44,12 +45,9 @@ class ArticleCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        _article.image,
-        _buildArticleTextList()
-      ],
-    );
+    return new Container(
+      height: _height,
+      child: _buildArticleTextList(),
+    ); // Container
   }
 }
